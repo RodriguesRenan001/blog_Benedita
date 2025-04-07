@@ -1,0 +1,36 @@
+/blog-escola/
+│
+├── assets/
+│   ├── css/
+│   │   ├── estilo.css       - Estilos principais
+│   │   └── auth.css         - Estilos para autenticação
+│   ├── js/
+│   │   └── script.js        - JavaScript do site
+│   └── images/              - Imagens do site
+│
+├── config/
+│   ├── database.php         - Conexão com banco de dados
+│   └── security.php         - Funções de segurança
+│
+├── includes/
+│   ├── header.php           - Cabeçalho comum
+│   ├── footer.php           - Rodapé comum
+│   ├── navbar.php           - Barra de navegação
+│   └── alerts.php           - Sistema de mensagens
+│
+├── posts/
+│   ├── criar.php            - Criar postagem
+│   ├── editar.php           - Editar postagem
+│   ├── visualizar.php       - Visualizar postagem
+│   └── listar.php           - Listar postagens
+│
+├── admin/                   - Área administrativa
+│   ├── dashboard.php        - Painel de controle
+│   └── gerenciar_usuarios.php
+│
+├── index.php                - Página inicial
+├── login.php                - Página de login
+├── cadastro.php             - Página de cadastro
+├── perfil.php               - Perfil do usuário
+├── logout.php               - Logout do sistema
+└── .htaccess                - Configurações de URL
