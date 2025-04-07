@@ -1,0 +1,26 @@
+# Ativar rewrite engine
+RewriteEngine On
+
+# Proteger arquivos sensíveis
+<FilesMatch "\.(env|htaccess|sql|log|ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevenir directory listing
+Options -Indexes
+
+# Proteger contra injection
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+
+# Redirecionar para HTTPS (se necessário)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URL amigáveis
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
